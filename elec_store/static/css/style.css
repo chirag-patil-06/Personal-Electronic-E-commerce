@@ -1,0 +1,12 @@
+.hero-section {
+    background: url("{% static 'images/istockphoto-918381560-170667a (1).jpg' %}") no-repeat center center/cover;  
+    height: 510px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    text-align: center;
+    margin-bottom: 25px;
+    
+
+}

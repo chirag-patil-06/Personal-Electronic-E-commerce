@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% load static %}
+{% block main %}
+<div class="d-flex justify-content-center align-items-center vh-100">
+    <div class="col-md-4 shadow-lg p-4 bg-white rounded" style="border: 2px solid #000000; ">
+        <h3 class="text-center mb-4 text-primary">Login</h3>
+        <form method="POST">
+            {% csrf_token %}
+            {% if error %}
+            <div class="alert alert-warning">{{error}}</div>
+            {% endif %} 
+            <div class="mb-3">
+                <label for="username" class="form-label fw-bold">Username</label>
+                <input type="text" class="form-control custom-input" id="username" placeholder="Enter your Username" name="username">
+            </div>
+    
+            <div class="mb-3">
+                <label for="password" class="form-label fw-bold">Password</label>
+                <input type="password" class="form-control custom-input" id="password" placeholder="Enter your Password" name="password">
+            </div>
+           
+            <div class="text-center">
+                <button type="submit" class="btn btn-outline-primary">Login</button>&nbsp;&nbsp;
+            </div><br>
+            <p class="text-center mt-3">
+                <a href="/register" class="btn btn-outline-dark">Not registered yet?</a> &nbsp;&nbsp;
+                <a href="/forget_pass" class="btn btn-outline-dark">Forget Password</a>
+            </p>
+        </form>
+    </div>
+</div>
+
+<style>
+    .custom-btn {
+        background: linear-gradient(45deg,rgb(28, 103, 214),rgb(24, 110, 190));
+        color: rgb(121, 116, 116);
+        font-weight: bold;
+        border: none;
+        transition: all 0.3s ease-in-out;
+    }
+    .custom-btn:hover {
+        background: linear-gradient(45deg, #218838, #1e7e34);
+        transform: scale(1.05);
+    }
+    .custom-input {
+        border-radius: 8px;
+        border: 1px solid #ddd;
+        transition: 0.3s;
+    }
+    .custom-input:focus {
+        border-color: #28a745;
+        box-shadow: 0 0 8px rgba(40, 167, 69, 0.5);
+    }
+</style>
+{% endblock main %}

@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block main  %}
+
+<div class="row m-2">
+    {% if carts %}
+    <div class="col-md-9">
+        {% for i in carts %}
+        <div class="row m-2 shadow-lg p-3 mb-5 bg-body-tertiary rounded">
+            <div class="col-md-7">
+                <img src="{{i.pid.pimage.url}}" width="150px" height="200px"
+                alt="img">
+
+            </div>
+            <div class="col-md-5">
+                <div class="card-body">
+                    <h5 class=" card-title">{{i.pid.pname}}</h5>
+                    <h5 class="card-title"><strong>Price:{{cart.pid.price}}₹</strong></h5>
+                    <a href="/updateqty/{{i.id}}/0/"><button class="btn btn-outline-danger">-</button></a>
+                    <input type="number" class="size-input"  style="width: 45px;" value="{{i.qty}}">
+                    
+                    <a href="/updateqty/{{i.id}}/1/"><button class="btn btn-outline-danger">+</button></a> <br> <br>
+                    <a href="/removecart/{{i.id}}/"><button class="btn btn-outline-danger">Remove Cart</button></a>
+
+                </div>
+            </div>
+
+        </div>
+        {% endfor %}
+
+    </div>
+    <div class="col-md-3">
+        <div class="shadow-lg p-3 mb-5 bg-body-tertiary rounded">
+            <h5>Total Items:{{items}}</h5>
+            <h5>Total Price: {{total}}</h5>
+            <a href="/checkaddress/" button class="btn btn-outline-info" type="submit">Continue</a>
+        </div>
+
+    </div>
+</div>
+{% else %}
+<div class="row">
+    <div class="col-md-12 mx-auto" >
+        Your Cart IS Empty
+    </div>
+</div>
+{% endif %}
+
+{% endblock main %}

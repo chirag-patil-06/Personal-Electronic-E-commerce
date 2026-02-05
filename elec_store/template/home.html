@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load static %}
+{% block main %}
+<div class="row">
+    <marquee behavior="" direction="left">FAUGET----Flat 40% Off----On Cards...</marquee>
+    
+    <div class=" col-md-10 mx-autocd ">
+        <div class=" row m-2 ">
+            {% if error %}
+            <div class="alert alert-danger">
+                {{error}}
+            </div>
+            {% endif %}
+            {% for i in products %}
+            <div class=" card mx-auto" style=" width: 26%;"> &nbsp;
+                <img src="{{i.pimage.url}}" height="300px; "  class="card-img-top">&nbsp;
+                <div class="card-body">
+                    <h5 class="card-title">{{i.pname}}</h5>
+                    <h6 class="card-subtitle mb-2 text-body-secondary">FAUGET</h6>
+                    <p class="card-text">{{i.price}}</p>
+                    <!-- <a href="/productdetail/{{i.id}}/" class="btn btn-warning">Buy Now</a>&nbsp;&nbsp; -->
+                    <a href="/productdetails/{{i.id}}/" class="btn btn-outline-warning" >Add to Cart</a>
+                    <a href="/productdetails/{{i.id}}/" class="btn btn-outline-success">View Details</a>
+            
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+</div>
+
+
+
+
+{% endblock main  %} 
+

@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% load static %}
+{% block main %}
+<div class="container d-flex justify-content-center mt-5">
+    <div class="col-md-4">
+        <div class="card shadow-lg p-4 rounded">
+            <h3 class="text-center mb-4">Shipping Details</h3>
+            <form method="POST" action="#">
+                {% if error %}
+                <div class="alert alert-danger">{{error}}</div>
+                {% endif %}
+                {% csrf_token %}
+                
+                <div class="mb-3">
+                    <label for="fullname" class="form-label">Full Name:</label>
+                    <input type="text" name="full_name" class="form-control" placeholder="Enter your full name">
+                </div>
+                
+                <div class="mb-3">
+                    <label for="lastname" class="form-label">Last Name:</label>
+                    <input type="text" name="last_name" class="form-control" placeholder="Enter your last name">
+                </div>
+                
+                <div class="mb-3">
+                    <label for="mob" class="form-label">Mobile No:</label>
+                    <input type="text" name="mobile" class="form-control" placeholder="Enter your number">
+                </div>
+                
+                <div class="mb-3">
+                    <label for="address" class="form-label">Address:</label>
+                    <textarea name="address" class="form-control" rows="3" placeholder="Enter your address"></textarea>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="pincode" class="form-label">Pincode:</label>
+                    <input type="text" name="pincode" class="form-control" placeholder="Enter your pincode">
+                </div>
+                
+                <div class="mb-3">
+                    <label for="city" class="form-label">City:</label>
+                    <input type="text" name="city" class="form-control" placeholder="Enter your city">
+                </div>
+                
+                <div class="mb-3">
+                    <label for="state" class="form-label">State:</label>
+                    <input type="text" name="state" class="form-control" placeholder="Enter your state">
+                </div>
+
+                <a href="/placeorder"><button type="submit" class="btn btn-primary w-100">Place Order</button></a>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock main %} n

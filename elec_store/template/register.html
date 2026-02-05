@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% load static %}
+{% block main %}
+
+<div class="row m-4">
+    <div class="col-md-4 mx-auto shadow-lg p-3 mb-5 bg-body-tertiary rounded" style="border: 1px solid black;">
+        <h3 class="text-center mb-4 text-primary">Register Here</h3>
+        <form method="POST">
+        {% csrf_token %}
+         
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label fw-bold">Your Name</label>
+              <input type="text" class="form-control custom-input" placeholder="Enter your Username" name="username">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label fw-bold">Email address</label>
+                <input type="email" class="form-control custom-input" placeholder="Enter your email address" name="email">
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label fw-bold">Password</label>
+              <input type="password" class="form-control custom-input" placeholder="Enter the password" name="password">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label fw-bold">Confirm Password</label>
+                <input type="password" class="form-control custom-input" placeholder="Re-enter the password" name="cpassword">
+            </div>
+            <div class="text-center">
+                <button type="submit" class="btn btn-outline-primary">Register</button>&nbsp;&nbsp;
+            </div><br> 
+            <p class="text-center">
+                <a href="/forget_pass" class="btn btn-outline-dark">Already Registered !</a>
+            </p>
+            
+          </form>
+    </div>
+</div>
+<style>
+ 
+    .custom-btn {
+        background: linear-gradient(45deg,rgb(28, 103, 214),rgb(24, 110, 190));
+        color: white;
+        font-weight: bold;
+        border: none;
+        transition: all 0.3s ease-in-out;
+    }
+    .custom-btn:hover {
+        background: linear-gradient(45deg, #218838, #1e7e34);
+        transform: scale(1.05);
+    }
+    .custom-input {
+        border-radius: 8px;
+        border: 1px solid #ddd;
+        transition: 0.3s;
+    }
+    .custom-input:focus {
+        border-color: #28a745;
+        box-shadow: 0 0 8px rgba(40, 167, 69, 0.5);
+    }
+</style>
+{% endblock main %}
