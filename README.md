@@ -1,0 +1,1 @@
+E-commerce allows businesses to reach customers globally without physical stores. Customers can browse products, compare prices, place orders, and make payments anytime and anywhere. It also includes digital marketing, online customer support, logistics, and data management.
